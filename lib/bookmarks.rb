@@ -2,7 +2,7 @@ class Bookmarks
   attr_reader :list
 
   def initialize
-    @list = ["www.google.com"]
+    @list = ["http://www.google.com"]
   end
 
 
