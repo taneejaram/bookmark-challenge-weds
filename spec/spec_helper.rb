@@ -2,9 +2,8 @@ require 'capybara/rspec'
 require './app'
 require 'rack/test'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
-require_relative './setup_test_database'
+require_relative './setup_test_database.rb'
 
-ENV['RACK_ENV'] = 'test'
 ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
@@ -12,6 +11,8 @@ RSpec.configure do |config|
     setup_test_database
   end
 end
+
+ENV['RACK_ENV'] = 'test'
 
 Capybara.app = Bookmark
 
