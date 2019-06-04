@@ -1,9 +1,11 @@
+require 'pg'
+
 class Bookmarks
-  attr_reader :list
 
-  def initialize
-    @list = ["http://www.google.com", "https://en.wikipedia.org/wiki/Tortoise"]
+  def self.list
+    connection = PG.connect(dbname: 'bookmark_manager')
+    result = connection.exec("SELECT * FROM bookmarks;")
+    result.map { |bookmark| bookmark['url']}
   end
-
 
 end
